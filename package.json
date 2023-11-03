@@ -1,0 +1,23 @@
+{
+  "name": "carpool",
+  "version": "1.0.0",
+  "description": "A Carpool App - the api for it",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/lincketheo/carpool-api.git"
+  },
+  "keywords": [
+    "carpool",
+    "social"
+  ],
+  "author": "Theo Lincke",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lincketheo/carpool-api/issues"
+  },
+  "homepage": "https://github.com/lincketheo/carpool-api#readme"
+}
