@@ -1,3 +1,4 @@
+import { red, white, yellow } from "colors";
 import AppLogger from "../AppLogger";
 
 export default class extends AppLogger {
@@ -9,15 +10,15 @@ export default class extends AppLogger {
     }
 
     info(msg?: any, ...trace: any[]): void {
-        console.info(`INFO: [${this.tag}] `, msg, ...trace)
+        console.info(white(`INFO: [${this.tag}] ${msg}`), ...trace)
     }
     debug(msg?: any, ...trace: any[]): void {
-        console.debug(`DEBUG: [${this.tag}] `, msg, ...trace)
+        console.debug(yellow(`DEBUG: [${this.tag}] ${msg}`), ...trace)
     }
     warn(msg?: any, ...trace: any[]): void {
-        console.warn(`WARN: [${this.tag}] `, msg, ...trace)
+        console.warn(red(`%c WARN: [${this.tag}] ${msg}`), ...trace)
     }
     error(msg?: any, ...trace: any[]): void {
-        console.error(`ERROR: [${this.tag}] `, msg, ...trace)
+        console.error(red(`%c ERROR: [${this.tag}] ${msg}`), ...trace)
     }
 }
