@@ -1,13 +1,25 @@
-import { Database } from "sqlite3";
+import { Database, OPEN_READWRITE } from "sqlite3";
+import DatabaseError from "../../repositories/errors/DatabaseError";
 
 let db: Database
 
 function provideInitialDb() {
-    const db = new Database(":memory:")
-    db.serialize(() => {
-        db.run("CREATE TABLE users (name TEXT)")
+    const db = new Database("./carpool.db", (err) => {
+        if (err) {
+            throw new DatabaseError("Couldn't create database", err)
+        }
     })
-    db.close()
+
+    db.exec(`
+    create table if not exists users (
+        name text not null
+    );
+    `, (err) => {
+        if (err) {
+            throw new DatabaseError("Couldn't create tables", err)
+        }
+    })
+
     return db
 }
 
